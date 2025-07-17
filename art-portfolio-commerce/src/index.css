@@ -1,0 +1,100 @@
+@tailwind base;
+@tailwind components;
+@tailwind utilities;
+
+:root {
+  /* Light mode colors */
+  --color-primary: 147 51 234; /* purple-600 */
+  --color-primary-dark: 126 34 206; /* purple-700 */
+  --color-secondary: 236 72 153; /* pink-500 */
+  --color-background: 255 255 255; /* white */
+  --color-surface: 249 250 251; /* gray-50 */
+  --color-text: 17 24 39; /* gray-900 */
+  --color-text-secondary: 75 85 99; /* gray-600 */
+  --color-border: 229 231 235; /* gray-200 */
+}
+
+.dark {
+  /* Dark mode colors */
+  --color-background: 17 24 39; /* gray-900 */
+  --color-surface: 31 41 55; /* gray-800 */
+  --color-text: 255 255 255; /* white */
+  --color-text-secondary: 156 163 175; /* gray-400 */
+  --color-border: 55 65 81; /* gray-700 */
+}
+
+/* Smooth transitions for theme switching */
+* {
+  transition-property: background-color, border-color, color, fill, stroke;
+  transition-timing-function: cubic-bezier(0.4, 0, 0.2, 1);
+  transition-duration: 300ms;
+}
+
+/* Custom scrollbar */
+::-webkit-scrollbar {
+  width: 8px;
+}
+
+::-webkit-scrollbar-track {
+  background: rgb(var(--color-surface));
+}
+
+::-webkit-scrollbar-thumb {
+  background: rgb(var(--color-primary) / 0.3);
+  border-radius: 4px;
+}
+
+::-webkit-scrollbar-thumb:hover {
+  background: rgb(var(--color-primary) / 0.5);
+}
+
+/* Focus styles */
+.focus-visible:focus {
+  outline: 2px solid rgb(var(--color-primary));
+  outline-offset: 2px;
+}
+
+/* Loading animation */
+@keyframes pulse {
+  0%, 100% {
+    opacity: 1;
+  }
+  50% {
+    opacity: 0.5;
+  }
+}
+
+.animate-pulse {
+  animation: pulse 2s cubic-bezier(0.4, 0, 0.6, 1) infinite;
+}
+
+/* Smooth image loading */
+img {
+  transition: opacity 0.3s ease-in-out;
+  max-width: 100%;
+  height: auto;
+}
+
+/* Image container fixes */
+.image-container {
+  position: relative;
+  overflow: hidden;
+  background-color: rgb(var(--color-surface));
+}
+
+/* Custom gradient backgrounds */
+.gradient-bg {
+  background: linear-gradient(135deg, rgb(var(--color-primary)) 0%, rgb(var(--color-secondary)) 100%);
+}
+
+/* Glass morphism effect */
+.glass {
+  background: rgba(255, 255, 255, 0.1);
+  backdrop-filter: blur(10px);
+  border: 1px solid rgba(255, 255, 255, 0.2);
+}
+
+.dark .glass {
+  background: rgba(0, 0, 0, 0.1);
+  border: 1px solid rgba(255, 255, 255, 0.1);
+}
